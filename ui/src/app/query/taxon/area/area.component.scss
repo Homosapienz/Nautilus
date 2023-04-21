@@ -1,0 +1,65 @@
+
+@import 'src/colors';
+@import 'src/app/query/query.component.scss';
+
+.area {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    > div {
+        
+        display:flex;
+        max-height: 55%;
+        
+        .selectable {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            width: 300px;
+        }
+
+        > mat-divider {
+            margin: 15px;
+        }
+        
+        .selected {
+            flex: 1;
+
+            .head {
+                display:flex;
+                align-items: center;
+                justify-content: flex-start;
+                max-height: 40px;
+                color: $eni-accent;
+                margin: 3px;
+
+                > span {
+                    margin-left: 8px;
+                }
+        
+                button {
+                    color: $eni-accent; 
+                }
+
+                .mat-icon-button .mat-button-wrapper {
+                    display: flex;
+                    justify-content: center;
+                }
+        
+                span {
+                    font-weight: 400;
+                    font-style: italic;
+                }
+            }
+
+            
+        }
+    }
+}
+
+.group-label {
+    font-style: italic !important;
+    user-select: none;
+    color: $eni-accent;
+}

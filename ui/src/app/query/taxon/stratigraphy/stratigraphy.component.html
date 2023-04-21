@@ -1,0 +1,68 @@
+<div class="filter-content">
+    <div class="stratigraphy">
+        <p (click)="log()">Search by Stratigraphy</p>
+
+        <div>
+            <div class="toggle">
+                <mat-button-toggle-group (change)="checkSubjectChange($event)" [(ngModel)]="searchData.searchSubject">
+                    <mat-button-toggle value="AGES">AGES</mat-button-toggle>
+                    <mat-button-toggle value="BIOZONES">BIOZONES</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+
+            <div class="toggle">
+                <mat-button-toggle-group [(ngModel)]="searchData.searchLimit">
+                    <mat-button-toggle value="INTERVAL" [checked]="true">INTERVAL</mat-button-toggle>
+                    <mat-button-toggle value="TOPLIMIT">TOP LIMIT</mat-button-toggle>
+                    <mat-button-toggle value="BOTTOMLIMIT">BOTTOM LIMIT</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <div class="values">
+
+                <div class="value" *ngIf="searchData.searchLimit != 'BOTTOMLIMIT'">
+                    <p>TOP</p>
+                    <p>{{ searchData.Top.code }}</p>
+                    <p>{{ searchData.Top.top }}</p>
+                    <p>{{ searchData.Top.bottom }}</p>
+
+                    <button mat-icon-button color="primary" (click)="openStratigraphyDialog('top')">
+                        <mat-icon>vertical_align_top</mat-icon>
+                    </button>
+
+                    <button mat-icon-button color="primary" (click)="resetTop()">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </div>
+
+                <mat-divider  *ngIf="searchData.searchLimit == 'INTERVAL'"></mat-divider>
+
+                <div class="value" *ngIf="searchData.searchLimit != 'TOPLIMIT'">
+
+                    <p>BOTTOM</p>
+                    <p>{{ searchData.Bottom.code }}</p>
+                    <p>{{ searchData.Bottom.top }}</p>
+                    <p>{{ searchData.Bottom.bottom }}</p>
+
+                    <button mat-icon-button color="primary" (click)="openStratigraphyDialog('bottom')">
+                        <mat-icon>vertical_align_bottom</mat-icon>
+                    </button>
+
+                    <button mat-icon-button color="primary" (click)="resetBottom()">
+                        <mat-icon>close</mat-icon>
+                    </button>
+
+                </div>
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <div class="slide">
+                <mat-slide-toggle [(ngModel)]="searchData.restrictedValues" [labelPosition]="'before'">APPLY RESTRICTED VALUES TO FILTER</mat-slide-toggle>
+            </div>
+
+        </div>
+    </div>
+</div>

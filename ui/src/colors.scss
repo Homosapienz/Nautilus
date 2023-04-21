@@ -1,0 +1,32 @@
+$eni-yellow: #ffdb24;
+$eni-accent: #998000;
+$eni-light: #fffde6;
+
+$eni-palette: (
+    50: $eni-light,
+    100: #fffac2,
+    200: #fff699,
+    300: #fef16e,
+    400: #fbec4a,
+    500: #f9e720,
+    600: $eni-yellow,
+    700: #fec21a,
+    800: #fda90f,
+    900: #fb7e00,
+    A100: #FFFF8D,
+    A200: $eni-accent,
+    A400: #FFEA00,
+    A700: #FFD600,
+    contrast: (
+        50: rgba(black, 0.87),
+        100: rgba(black, 0.87),
+        200: rgba(black, 0.87),
+        300: rgba(black, 0.87),
+        400: rgba(black, 0.87),
+        500: rgba(black, 0.87),
+        600: rgba(black, 0.87),
+        700: rgba(black, 0.87),
+        800: rgba(black, 0.87),
+        900: rgba(black, 0.87)
+    )
+);

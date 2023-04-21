@@ -1,0 +1,41 @@
+@import 'src/common.scss';
+
+
+span {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    text-align: center;
+    @include Calibri(title);
+}
+
+.groups {
+    top: 120px;
+    min-height: unset;
+
+    > div {
+        display:flex;
+        justify-content: space-around;
+        
+        div {
+            transition: all 0.3s ease-in-out;
+            width:100px;
+            display: flex;
+            justify-content: center;
+
+            &:hover {
+                cursor: pointer;
+                box-shadow: 
+                1px 1px 3px lightgray,
+                inset 15px 0 100px $eni-light,
+                inset -15px 0 100px $eni-yellow;
+                transform: scale(1.04);
+                opacity: 1;
+            }
+        }
+    }
+}

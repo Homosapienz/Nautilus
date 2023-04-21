@@ -1,0 +1,22 @@
+<div *ngIf="isQueryPage" class="card-container">
+    
+    <span #linkName></span>
+    <div class="card-items">
+
+        <a [routerLink]="['/query/taxon']" class="menu-card">
+            <div (mouseover)="linkName.innerText = 'Taxon'; linkName.className = 'slide-fade'"
+                 (mouseleave)="linkName.innerText = ''; linkName.className = ''">
+                <img src="./assets/taxon.png" />
+            </div>
+        </a>
+    <!--
+        <a [routerLink]="['/query/assemblage']" class="menu-card" >
+            <div (mouseover)="linkName.innerText = 'Assemblage'; linkName.className = 'slide-fade'"
+                 (mouseleave)="linkName.innerText = ''; linkName.className = ''">
+                <img src="./assets/assemblage.png" alt="Utilities" />
+            </div>
+        </a>
+    -->
+    </div>
+</div>
+<router-outlet></router-outlet>

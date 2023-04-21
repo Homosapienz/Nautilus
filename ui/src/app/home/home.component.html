@@ -1,0 +1,23 @@
+
+
+<div class="card-container">
+    
+    <span #linkName></span>
+    <div class="card-items">
+
+        <a [routerLink]="['/query']" class="menu-card" >
+            <div (mouseover)="linkName.innerText = 'Query';linkName.className = 'slide-fade'"
+                 (mouseleave)="linkName.innerText = '';linkName.className = ''">
+                <img src="./assets/query.png" />
+            </div>
+        </a>
+        
+        <a [routerLink]="['/utilities']" class="menu-card" >
+            <div (mouseover)="linkName.innerText = 'Utilities';linkName.className = 'slide-fade'"
+                 (mouseleave)="linkName.innerText = '';linkName.className = ''">
+                <img src="./assets/utilities.png" />
+            </div>
+        </a>
+
+    </div>
+</div>

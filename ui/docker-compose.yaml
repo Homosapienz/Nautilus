@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  nautilus-ui:
+    image: ${DOCKER_REGISTRY-}nautilus-ui
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    volumes:
+      - /app/node_modules
+      - .:/app

@@ -1,0 +1,70 @@
+<div class="stratList">
+    <div class="results">
+
+        <ngx-datatable style="height:400px"
+            class="material"
+            [rows]="rows"
+            [columnMode]="columnMode.force"
+            [headerHeight]="40"
+            [footerHeight]="70"
+            [rowHeight]="70"
+            [scrollbarV]="true"
+            (select)="onSelect($event)"
+            [selectionType]="selectionType.single"
+            >
+            <ngx-datatable-column name="Code" [width]="100">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <p><b>{{ row['code'] }}</b></p>
+                </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Source" [width]="100">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <p>{{ row['source'] }}</p>
+                </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Name">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+
+                    <div class="age-ref" *ngIf="searchType == 'AGES'">
+                        <div>{{ row['erathema'] }}</div>
+                        <div>{{ row['systeme'] }}</div>
+                        <div>{{ row['series'] }}</div>
+                    </div>
+
+                    <div *ngIf="searchType == 'BIOZONES'">
+                        <p>{{ row['name'] }}</p>
+                    </div>
+                    
+                </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Top" [width]="100">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <p>{{ row['top'] }}</p>
+                </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Bottom" [width]="100">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <p>{{ row['bottom'] }}</p>
+                </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-footer>
+                <ng-template 
+                ngx-datatable-footer-template 
+                let-rowCount="rowCount"
+                let-pageSize="pageSize"
+                let-selectedCount="selectedCount"
+                let-curPage="curPage"
+                let-offset="offset">
+                <div id="close">
+                    <button mat-flat-button color="primary" [mat-dialog-close]="selection">Close</button>
+                </div>
+                </ng-template>
+            </ngx-datatable-footer>
+        </ngx-datatable>
+    
+</div>

@@ -1,0 +1,116 @@
+@import '../../common.scss';
+@import 'src/colors';
+
+
+.search-input {
+    min-height: 30px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom: 1px lightgray solid;
+    width: 100%;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.filter-content {
+
+    min-height: 99%;
+    display:flex;
+    justify-content: center;
+    position: relative;
+    max-height: 100%;
+
+    > div {
+
+        top: 50px;
+        position: absolute;
+        border-radius: 10px;
+        border: 1px #efecd7 solid;
+        padding: 20px;
+        max-height: fit-content;
+        background-color: $eni-light;
+        box-shadow:0px 1px 8px 0px lightgray;
+        max-height: 80%;
+        min-height: 60%;
+        min-width: 40%;
+
+        > p {
+            position: relative;
+            color: $eni-accent;
+            opacity: 0.7;
+            background-color: $eni-yellow;
+            margin-top: 0px;
+            padding: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.15rem;
+            margin-block-end: 1.5em;
+            user-select: none;
+            border-radius: 4px;
+        }
+
+        .mat-mdc-form-field {
+            max-height: 58px;
+        }
+
+        .mat-mdc-form-field-infix {
+            min-height: 40px !important;
+            padding-top: 10px !important;
+            height: 35px;
+            
+        }
+
+        .mat-mdc-text-field-wrapper 
+        .mat-mdc-form-field-flex 
+        .mat-mdc-floating-label {
+            top: 50%;
+        }
+
+        .mat-mdc-text-field-wrapper {
+            background-color: #fff;
+            height: unset;
+        }
+
+        .sel-list {
+            white-space: normal;
+            background-color: #fff;
+            height: 200px;
+            overflow-y: auto;
+            font-size: small;
+
+            .mdc-list-item {
+                padding-left: 0 !important;
+            }
+
+            mat-list-item {
+                max-height: 36px;
+            }
+
+            .option {
+                display:flex;
+                align-items: center;
+                flex-wrap: nowrap;
+                padding: 3px;
+
+                button[mat-mini-fab] {
+                    width: 30px;
+                    height: 30px;
+                    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.2), 
+                                0px 2px 3px 0px rgba(0, 0, 0, 0.14), 
+                                0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+                }
+
+                > :nth-child(2) {
+                    flex-grow: o;
+                    word-break: break-all;
+                    overflow: unset;
+                    margin-left: 8px;
+                }
+            }
+        }        
+
+
+    }
+}

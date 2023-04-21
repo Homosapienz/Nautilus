@@ -1,0 +1,80 @@
+<div class="filter-content">
+    <div class="bibliography">
+
+        <p>Find Bibliographic Source By</p>
+        <div>
+            <div class="search">
+                <mat-form-field appearance="outline">
+                    <input
+                        #srcCode
+                        [formControl]="searchCode"
+                        (focus)="phCode=''"
+                        (focusout)="phCode='Code'"
+                        matInput 
+                        [placeholder]='phCode'
+                        type="text"/>
+                    <mat-icon matSuffix (click)="clearCode()">close</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <input 
+                        [formControl]="searchAuthor" 
+                        matInput 
+                        (focus)="phAuthor=''"
+                        (focusout)="phAuthor='Author'"
+                        [placeholder]="phAuthor" 
+                        type="text"/>
+                        <mat-icon matSuffix (click)="clearAuthor()">close</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <input 
+                        [formControl]="searchYear" 
+                        matInput 
+                        (focus)="phYear=''"
+                        (focusout)="phYear='Year'"
+                        [placeholder]="phYear" 
+                        type="text"/>
+                    <mat-icon matSuffix (click)="clearYear()">close</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <input 
+                        [formControl]="searchQuote" 
+                        matInput 
+                        (focus)="phQuote=''"
+                        (focusout)="phQuote='Quote'"
+                        [placeholder]="phQuote" 
+                        type="text"/>
+                    <mat-icon matSuffix (click)="clearQuote()">close</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <input 
+                        [formControl]="searchSubject" 
+                        matInput 
+                        (focus)="phSubject=''"
+                        (focusout)="phSubject='Subject'"
+                        [placeholder]="phSubject" 
+                        type="text"/>
+                    <mat-icon matSuffix (click)="clearSubject()">close</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <mat-divider [vertical]="true"></mat-divider>
+
+            <div class="result">
+                <ng-container *ngIf="sources.length == 0">
+                    <p>No Items found</p>
+                </ng-container>
+                <mat-selection-list #selSources [multiple]="false">
+                    <mat-list-option [value]="biblio" *ngFor="let biblio of sources">
+                        <div (click)="sourceSelected(biblio)">
+                            <div><b>{{ biblio.code }}</b></div>
+                            <div>{{ biblio.author }}</div>
+                            <div>{{ biblio.year }}</div>
+                            <div>{{ biblio.sbj }}</div>
+                        </div>
+                    </mat-list-option>
+                </mat-selection-list>
+            </div>
+        </div>
+        
+    </div>
+</div>

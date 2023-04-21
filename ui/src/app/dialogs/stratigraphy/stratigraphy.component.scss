@@ -1,0 +1,35 @@
+@import '../../../colors.scss';
+
+.stratList {
+    padding: 0px;
+    height: 100%;
+
+    .results {
+        width: 100%;
+        position: absolute;
+
+        .age-ref {
+            display: flex;
+            flex-direction: column;
+
+            div {
+                font-size: small;
+                line-height: 14px;
+            }
+        }
+    }
+
+    #close {
+        display: flex;
+        justify-content: center;
+
+        padding: 15px;
+        background-color: #fff;
+        bottom: 0px;
+        width: 100%;
+    }
+}
+
+::ng-deep .ngx-datatable.material.single-selection .datatable-body-row.active * {
+    background-color: $eni-yellow;
+}

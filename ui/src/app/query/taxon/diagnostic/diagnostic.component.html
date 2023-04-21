@@ -1,0 +1,56 @@
+<div class="filter-content">
+	<div class="diagnostics">
+        <p>Search by diagnostic characters</p>
+
+        <div>
+            <div class="selectable">
+                <mat-form-field appearance="outline">
+                    <mat-label> {{ diagnostics.length > 0 ? 'Diagnostic characters' : 'No character found' }} </mat-label>
+                    <mat-select 
+                        [multiple]="true" 
+                        #selDiags 
+                        (selectionChange)="onSelectDiagnostic($event)"
+                        [disabled]="diagnostics.length == 0">
+                        <input 
+                            class="search-input" 
+                            placeholder="Search a character:" 
+                            [formControl]="searchinput"
+                            (keydown)="$event.stopPropagation()" />
+                        <mat-option 
+                            *ngFor="let dia of diagnostics | search: (search$ | async)" 
+                            [value]="dia.code"
+                            [disabled]="isSelected(dia.code)">
+                            {{dia.description}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+    
+            <mat-divider [vertical]="true"></mat-divider>
+    
+            <div class="selected">
+                <div class="head">
+                    <button mat-mini-fab class="icon-button-small" color="primary" (click)="deleteAllSelection()">
+                        <mat-icon>keyboard_arrow_left</mat-icon>
+                    </button>
+                    <span>Selection</span>
+                </div>
+                <mat-divider></mat-divider>
+                <div class="sel-list">
+                    <mat-list>
+                        <mat-list-item *ngFor="let diag of selectedDiagnostics">
+                            <div class="option">
+                                <div>
+                                    <button mat-mini-fab (click)="deleteFromSelection(diag)">
+                                        <mat-icon>keyboard_arrow_left</mat-icon>
+                                    </button>
+                                </div>
+                                <div>{{ diag.description }}</div>
+                            </div>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>

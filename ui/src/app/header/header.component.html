@@ -1,0 +1,29 @@
+<div class="header">
+    <div>
+        <div class="hlink">
+            <img src="assets/myeni.png">
+        <!--
+            <a href="https://www.eni.com">
+                eni.com
+            </a>
+            <a href="https://www.eniday.com">
+                eniday.com
+            </a>
+        -->
+        </div>
+
+        <div class="hinfo">
+            <span>
+                <mat-icon>person_outline</mat-icon>
+                {{ user?.Name }} {{ user?.LastName }}
+            </span>
+        </div>
+    </div>
+    <div class="logo">
+        <div>
+            <a [routerLink]="['/']">
+                <img src="./assets/nautilus_logo.png" alt="">
+            </a>
+        </div>
+    </div>
+</div>

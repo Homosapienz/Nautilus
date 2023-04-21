@@ -1,0 +1,40 @@
+@import '../../../colors.scss';
+
+.yesno {
+
+    width:100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    div:nth-child(1) {
+        width:100%;
+        height: 15%;
+        max-height: 40px;
+        background-color: $eni-yellow;
+        color: $eni-accent;
+        text-align: right;
+        text-transform:uppercase;
+        font-size: small;
+        vertical-align: middle;
+        padding-right: 10px;
+        border-radius: 4px;
+    }
+
+    p {
+        margin: 10px;
+        text-align: justify;
+    }
+
+    div:nth-child(3){
+        display: flex;
+        justify-content: center;
+
+        button {
+            width: 100%;
+            margin: 3px;
+        }
+    }
+}

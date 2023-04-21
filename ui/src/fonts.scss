@@ -1,0 +1,24 @@
+
+$fontSource: 'Calibri';
+
+@mixin Calibri($type) {
+    @if $type == "light" {
+        font-family: $fontSource!important;
+        font-weight: 10!important;
+    } @else if $type == "regular" {
+        font-family: $fontSource!important;
+        font-weight: normal!important;
+    } @else if $type == "semi" {
+        font-family: $fontSource!important;
+        font-weight: 400;
+    } @else if $type == "bold" {
+        font-family: $fontSource!important;
+        font-weight: bold!important;
+    }
+    @else if $type == "title" {
+        font-family: $fontSource!important;
+        font-weight: bold!important;
+        font-size: 32pt;
+        letter-spacing: 0.7rem;
+    }
+}

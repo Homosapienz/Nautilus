@@ -1,0 +1,39 @@
+
+<!--
+<div class="card-container">
+
+    <span #linkName></span>
+    <div class="card-items">
+
+        <ng-container *ngFor="let group of groups">
+            <a class="menu-card" (click)="changeGroup(group)">
+                <div (mouseover)="linkName.innerText = group.name;linkName.className = 'slide-fade'"
+                     (mouseleave)="linkName.innerText = '';linkName.className = ''"
+                     [class]="selectedGroup == group ? 'card-selected' : ''">
+                    <img [src]="'./assets/groups/' + group.name +  '.png'" height="100px"/>
+                </div>
+            </a>
+        </ng-container>
+
+    </div>
+</div>
+-->
+
+<div class="filter-content">
+    <span #linkName></span>
+    <div class="groups">
+        <p>Search By Group</p>
+
+        <div>
+            <ng-container *ngFor="let group of groups">
+                <a (click)="changeGroup(group)">
+                    <div (mouseover)="linkName.innerText = group.name;linkName.className = 'slide-fade'"
+                         (mouseleave)="linkName.innerText = '';linkName.className = ''"
+                         [class]="selectedGroup == group ? 'card-selected' : ''">
+                        <img [src]="'./assets/groups/' + group.name +  '.png'" height="100px"/>
+                    </div>
+                </a>
+            </ng-container>
+        </div>
+    </div>
+</div>

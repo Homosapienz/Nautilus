@@ -1,0 +1,9 @@
+<div class="bcBar">
+    <ol>
+        <li *ngFor='let bc of breadcrumbs'>
+            <span [routerLink]="bc.url" routerLinkActive="router-link-active">
+                {{ bc.label }}
+            </span>
+        </li>
+    </ol>
+</div>

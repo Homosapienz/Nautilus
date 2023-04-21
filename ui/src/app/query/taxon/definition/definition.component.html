@@ -1,0 +1,96 @@
+<div class="filter-content">
+    <div class="definitions">
+        <p>Define taxonomy</p>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Subgroup</mat-label>
+                <mat-select 
+                    #selsubgroup 
+                    [multiple]="false" 
+                    (selectionChange)="changeSubgroup($event)">
+                    <input 
+                        class="search-input" 
+                        placeholder="Search subgroup:" 
+                        type="text" 
+                        [formControl]="searchsubgroup"
+                        (keydown)="$event.stopPropagation()" />
+                    <mat-option></mat-option>
+                    <mat-option 
+                        [value]="sub.id" 
+                        *ngFor="let sub of subgroups | search: (searchsg$ | async)">
+                        {{ sub.id + ' - ' + sub.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Genus</mat-label>
+                <mat-select 
+                    #selgenus 
+                    [disabled]="!genus.length" 
+                    [multiple]="false" 
+                    (selectionChange)="changeGenus($event)">
+                    <input 
+                        class="search-input" 
+                        placeholder="Search genus:" 
+                        type="text" 
+                        [formControl]="searchgenus"
+                        (keydown)="$event.stopPropagation()" />
+                    <mat-option></mat-option>
+                    <mat-option 
+                        [value]="gen.id" 
+                        *ngFor="let gen of genus | search: (searchge$ | async)">
+                        {{ gen.id + ' - ' + gen.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Species</mat-label>
+                <mat-select 
+                    #selspecies 
+                    [disabled]="!species.length" 
+                    [multiple]="false" 
+                    (selectionChange)="changeSpecies($event)">
+                    <input 
+                        class="search-input" 
+                        placeholder="Search species:" 
+                        type="text" 
+                        [formControl]="searchspecies"
+                        (keydown)="$event.stopPropagation()" />
+                    <mat-option></mat-option>
+                    <mat-option 
+                        [value]="sp.id" 
+                        *ngFor="let sp of species | search: (searchsp$ | async)">
+                        {{ sp.id + ' - ' + sp.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Subspecies</mat-label>
+                <mat-select 
+                    #selsubspecies 
+                    [disabled]="!subspecies.length" 
+                    [multiple]="false"
+                    (selectionChange)="changeSubspecies($event)">
+                    <input 
+                        class="search-input" 
+                        placeholder="Search subspecies:" 
+                        type="text" 
+                        [formControl]="searchsubs"
+                        (keydown)="$event.stopPropagation()" />
+                    <mat-option></mat-option>
+                    <mat-option 
+                        [value]="sub.id" 
+                        *ngFor="let sub of subspecies | search: (searchss$ | async)">
+                        {{ sub.id + ' - ' + sub.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </div>
+</div>
+    
+

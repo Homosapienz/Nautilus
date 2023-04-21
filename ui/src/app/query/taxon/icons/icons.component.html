@@ -1,0 +1,23 @@
+<div class="filter-content">
+    <div class="icons">
+        <ul class="gallery">
+            <ng-container *ngIf="icons.length == 0">
+                <li class="message">
+                    NO ICON FOUND
+                </li>
+            </ng-container>
+            <ng-container *ngFor="let icon of icons">
+                <li class="icon">
+                    <img 
+                        src="./assets/samples/sample.bmp" 
+                        [alt]="icon.column" 
+                        (click)="onIconClick($event, icon)"/>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
+</div>
+
+
+
+    

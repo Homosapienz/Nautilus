@@ -1,0 +1,95 @@
+
+<mat-tab-group #tabs mat-align-tabs="start" color="accent" disablePagination="true">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <p [class]="groupDefined ? 'tab-filter-compiled' : ''">Group<p>
+        </ng-template>
+        <app-group (groupChanged)="setGroup($any($event))"></app-group>
+        <div class="results" *ngIf="subgroupDefined">
+            <button mat-icon-button color="primary">
+                <mat-icon>play_arrow</mat-icon>
+            </button>
+        </div>        
+    </mat-tab>
+    <mat-tab label="Taxon" [disabled]="!groupDefined">
+        <ng-template mat-tab-label>
+            <p [class]="subgroupDefined ? 'tab-filter-compiled' : ''">Taxon<p>
+        </ng-template>
+        <app-definition 
+            [subgroups]="subgroups" (subgroupChanged)="setSubGroup($event)"
+            [genus]="genus" (genusChanged)="setGenus($event)"
+            [species]="species" (speciesChanged)="setSpecies($event)"
+            [subspecies]="subspecies" (subspeciesChanged)="setSubspecies($event)"
+            [resetTrigger]="resetFilter$"
+        ></app-definition>
+        <div class="results" *ngIf="subgroupDefined">
+            <mat-icon color="primary">play_arrow</mat-icon>
+        </div>  
+    </mat-tab>
+    <mat-tab [disabled]="!groupDefined">
+        <ng-template mat-tab-label>
+            <p [class]="areaDefined ? 'tab-filter-compiled' : ''">Area<p>
+        </ng-template>
+        <app-area
+            [areas]="areas"
+            (selectionChanged)="setAreas($event)"
+            [resetTrigger]="resetFilter$"
+        ></app-area>
+        <div class="results" *ngIf="subgroupDefined">
+            <mat-icon color="primary">play_arrow</mat-icon>
+        </div>  
+    </mat-tab>
+    <mat-tab [disabled]="!subgroupDefined || !diagnosticsEnabled">
+        <ng-template mat-tab-label>
+            <p [class]="diagnosticsDefined ? 'tab-filter-compiled' : ''">Diagnostics<p>
+        </ng-template>
+        <app-diagnostic
+            [diagnostics]="diagnostics"
+            (selectionChanged)="setDiagnostics($event)"
+            [resetTrigger]="resetFilter$"
+        ></app-diagnostic>
+        <div class="results" *ngIf="subgroupDefined">
+            <mat-icon color="primary">play_arrow</mat-icon>
+        </div>  
+    </mat-tab>
+    <mat-tab [disabled]="!subgroupDefined || !diagnosticsEnabled">
+        <ng-template mat-tab-label>
+            <p [class]="iconsDefined ? 'tab-filter-compiled' : ''">Icons<p>
+        </ng-template>
+        <app-icons
+            [icons]="icons"
+            (selectionchange)="setIcons($event)"
+            [resetTrigger]="resetFilter$">
+        </app-icons>
+        <div class="results" *ngIf="subgroupDefined">
+            <mat-icon color="primary">play_arrow</mat-icon>
+        </div>  
+    </mat-tab>
+    <mat-tab [disabled]="!subgroupDefined">
+        <ng-template mat-tab-label>
+            <p [class]="bibliographyDefined ? 'tab-filter-compiled' : ''">Bibliography<p>
+        </ng-template>
+        <app-bibliography
+            [sources]="bibliographies"
+            (searchChange)="getBibliography($event)"
+            (selectionChange)="setBibliography($event)"
+            [resetTrigger]="resetFilter$">
+        </app-bibliography>
+        <div class="results" *ngIf="subgroupDefined">
+            <mat-icon color="primary">play_arrow</mat-icon>
+        </div>  
+    </mat-tab>
+    <mat-tab [disabled]="!subgroupDefined">
+        <ng-template mat-tab-label>
+            <p [class]="stratigraphyDefined ? 'tab-filter-compiled' : ''">Stratigraphy<p>
+        </ng-template>
+        <app-stratigraphy
+            (LimitChange)="setStratigraphy($event)"
+            [resetTrigger]="resetFilter$"
+        ></app-stratigraphy>
+        <div class="results" *ngIf="subgroupDefined">
+            <mat-icon color="primary">play_arrow</mat-icon>
+        </div>  
+    </mat-tab>
+</mat-tab-group>
+

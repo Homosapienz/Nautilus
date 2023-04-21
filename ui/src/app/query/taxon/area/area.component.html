@@ -1,0 +1,69 @@
+
+<div class="filter-content">
+    <div class="area">
+        <p>Search By Area</p>
+        <div>
+            
+            <div class="selectable">
+                <mat-form-field appearance="outline">
+                    <mat-label>Areas</mat-label>
+                    <mat-select [multiple]="true" #selAreas (selectionChange)="onSelectArea($event)">
+                        <input 
+                            class="search-input" 
+                            placeholder="Search an area:" 
+                            [formControl]="searchinput"
+                            (keydown)="$event.stopPropagation()" />
+                        <mat-optgroup>  
+                            <span class="group-label" color="accent">Regions</span>
+                            <mat-option 
+                                *ngFor="let region of Regions | search : (search$ | async)"
+                                [value]="region.regionCode">
+                                {{ region.regionName }}
+                            </mat-option>
+                        </mat-optgroup>
+                        <mat-divider></mat-divider>
+                        <mat-optgroup>
+                            <span class="group-label" color="accent">Countries</span>
+                            <mat-option
+                                *ngFor="let country of Countries | search : (search$ | async)"
+                                [value]="country.countryCode" 
+                                [disabled]="isSelected(country.countryCode)">
+                                {{ country.countryName }}
+                            </mat-option>
+                        </mat-optgroup>
+                        
+                    </mat-select>
+                </mat-form-field>   
+            </div>
+
+            <mat-divider [vertical]="true"></mat-divider>
+
+            <div class="selected">
+                <div class="head">
+                    <button class="icon-button-small" color="primary" mat-mini-fab (click)="deleteAllSelection()">
+                        <mat-icon>keyboard_arrow_left</mat-icon>
+                    </button>
+                    <span>Selection</span>
+                </div>
+
+                <mat-divider></mat-divider>
+                
+                <div class="sel-list">
+                    <mat-list>
+                        <mat-list-item *ngFor="let area of selectedAreas">
+                            <div class="option">
+                                <div>
+                                    <button mat-mini-fab (click)="deleteFromSelection(area)">
+                                        <mat-icon>keyboard_arrow_left</mat-icon>
+                                    </button>
+                                </div>
+                                <div>{{ area.countryName }}</div>
+                            </div>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

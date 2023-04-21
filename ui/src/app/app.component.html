@@ -1,0 +1,21 @@
+<div class="app">
+  <div class="head">
+    <app-header [user]="user"></app-header>
+  </div>
+  <div class="content">
+    <div class="navbar">
+      <app-navbar></app-navbar>
+    </div>
+    
+    <div class="main">
+      <div class="breadcrumb">
+        <app-breadcrumb></app-breadcrumb>
+      </div>
+      <div class="routing">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="isLoading$ | async"></mat-progress-spinner>

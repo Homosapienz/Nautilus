@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  nautilus:
+    image: ${DOCKER_REGISTRY-}nautilus
+    build:
+      context: .
+      dockerfile: Nautilus/Dockerfile

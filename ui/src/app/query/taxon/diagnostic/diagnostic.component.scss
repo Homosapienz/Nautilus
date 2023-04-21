@@ -1,0 +1,54 @@
+@import 'src/colors';
+@import 'src/app/query/query.component.scss';
+
+
+
+.diagnostics {
+
+    > div {
+        display: flex;
+        justify-content: center;
+        height: 90%;
+
+        .selectable {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 0px;
+            width: 0;
+        }
+
+        > mat-divider {
+            margin: 15px;
+        }
+
+        .selected {
+            flex: 1 1 0px;
+            width: 0;
+    
+            .head {
+                display:flex;
+                align-items: center;
+                margin: 3px;
+
+                > span {
+                    margin-left: 8px;
+                }
+        
+                button, span {
+                    color: $eni-accent;
+                }
+        
+                span {
+                    font-weight: 400;
+                    font-style: italic;
+                }
+            }
+    
+           
+            .option {
+                display:flex;
+                align-items: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,106 @@
+@import 'fonts.scss';
+@import 'colors.scss';
+
+a.menu-card {
+    margin: 20px;
+
+    div {
+        opacity: 0.5;
+        background-color: $eni-light;
+        display: flex;
+        align-items: center;
+        padding: 30px;
+        min-height: 200px;
+        border: 1px lightgray solid;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+
+        box-shadow:
+        3px 3px 6px lightgray,
+        inset 15px 0 80px $eni-light,
+        inset -15px 0 80px $eni-yellow;
+
+        &:hover {
+            cursor: pointer;
+            box-shadow: 
+            6px 6px 6px lightgray,
+            inset 15px 0 100px $eni-light,
+            inset -15px 0 100px $eni-yellow;
+            transform: scale(1.04);
+            opacity: 1;
+        }
+        
+        img {
+            width: 80px;
+            pointer-events: none;
+        }
+    }
+}
+
+.card-selected {
+    cursor: pointer;
+    box-shadow: 
+        6px 6px 6px lightgray,
+        inset 15px 0 100px $eni-light,
+        inset -15px 0 100px $eni-yellow;
+    transform: scale(1.04);
+    opacity: 1 !important;
+    border: 4px $eni-yellow solid !important;
+}
+
+.card-container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    
+    span {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 500px;
+        text-align: center;
+        @include Calibri(title);
+    }
+
+    .card-items {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.slide-fade {
+	-webkit-animation: slide-fade 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-fade 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-fade {
+    0% {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+                opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(-10px);
+                transform: translateY(-10px);
+                opacity: 0.5;
+    }
+}
+
+@keyframes slide-fade {
+    0% {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+                opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(-10px);
+                transform: translateY(-10px);
+                opacity: 0.5;
+    }
+}

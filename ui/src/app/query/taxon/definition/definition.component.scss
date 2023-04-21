@@ -1,0 +1,15 @@
+@import 'src/colors';
+@import 'src/app/query/query.component.scss';
+
+.definitions {
+   
+    //position: absolute;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+}
+

@@ -1,0 +1,83 @@
+@import 'src/colors';
+@import 'src/app/query/query.component.scss';
+
+.stratigraphy  {
+
+    > p {
+        color: $eni-accent;
+        opacity: 0.5;
+    }
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 95%;
+        
+        position:relative;
+
+        mat-divider {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .toggle{
+            width: 100%;
+            margin-bottom: 10px;
+
+            mat-button-toggle-group {
+                width: 100%;
+                display: flex;
+
+                mat-button-toggle {
+                    flex: 1 0;
+                    font-weight: bold;
+                }
+
+                .mat-button-toggle-label-content {
+                    line-height: 30px;
+                }
+
+                .mat-button-toggle-checked {
+                    background-color: $eni-yellow;
+                }
+            }
+        }
+
+        .slide {
+            padding: 10px;
+
+            mat-slide-toggle {
+                float: right;
+            }
+        }
+
+        .values {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            background-color: #fff;
+            padding: 12px;
+
+            .value {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                &:hover {
+                    background-color: #fbfaf5;
+                }
+
+                p:nth-child(1) {
+                    font-weight: bold;
+                }
+                
+                p {
+                    margin: 5px;
+                    flex: 1;
+                }
+            }
+        }
+        
+    }
+}
